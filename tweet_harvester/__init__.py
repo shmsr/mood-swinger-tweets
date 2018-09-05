@@ -18,14 +18,17 @@ tweepy_api = tweepy.API(auth)
 def hello_world():
     return render_template('home.html', title='Home')
 
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
+
 @app.errorhandler(500)
 def handle_intsrverr(e):
     return render_template('500.html'), 500
-    
+
+
 def get_tweets(username):
     try:
         tweets = tweepy_api.user_timeline(screen_name=username)
@@ -46,6 +49,3 @@ def tweets(username):
         return render_template('tweets.html', tweets=tweets, title=username)
     else:
         return render_template('Tweet_404.html'), 404
-
-        
-        
