@@ -1,4 +1,4 @@
-from flask import Flask, request, json, render_template, redirect, url_for
+from flask import Flask, request, json, render_template
 import tweepy
 
 # Name it the '__name__' of this module (tweet-harvest)
