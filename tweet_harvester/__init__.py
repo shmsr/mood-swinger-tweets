@@ -13,8 +13,6 @@ auth.set_access_token(app.config['TWITTER_ACCESS_TOKEN'], app.config['TWITTER_AC
 tweepy_api = tweepy.API(auth)
 
 # We define our URL route, and the controller to handle requests
-
-
 @app.route('/')
 @app.route('/home')
 def hello_world():
@@ -26,7 +24,7 @@ def page_not_found(e):
 
 @app.errorhandler(500)
 def handle_intsrverr(e):
-    return render_template('404.html'), 500
+    return render_template('500.html'), 500
     
 def get_tweets(username):
     try:
