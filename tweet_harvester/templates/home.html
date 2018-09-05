@@ -1,0 +1,23 @@
+{% extends "layout.html" %} 
+{% block content %}
+<script>
+    function process() {
+        var url = "/tweet-harvester/" + document.getElementById("inputUsername").value;
+        location.href = url;
+        return false;
+    }
+</script>
+<form class="form-inline" onSubmit="return process();">
+    <div class="col-md-9">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input type="text" class="form-control" id="inputUsername" placeholder="Twitter Handle" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <button type="submit" class="btn btn-success">Up my mood!</button>
+    </div>
+</form>
+{% endblock content %}

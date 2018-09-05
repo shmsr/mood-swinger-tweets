@@ -1,0 +1,9 @@
+{% extends "layout.html" %} 
+{% block content %}
+<div class="card text-white bg-danger mb-12">
+    <div class="card-header"><b>Ugh!</b></div>
+    <div class="card-body">
+        {% block error %} {% endblock error %}
+    </div>
+</div>
+{% endblock content %}
