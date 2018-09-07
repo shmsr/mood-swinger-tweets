@@ -1,23 +1,39 @@
-{% extends "layout.html" %} 
+{% extends "layout.html" %}
 {% block content %}
-<script>
-    function process() {
-        var url = "/tweet-harvester/" + document.getElementById("inputUsername").value;
-        location.href = url;
-        return false;
-    }
-</script>
-<form class="form-inline" onSubmit="return process();">
-    <div class="col-md-9">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">@</span>
+<div class="col-md-12">
+    <div class="jumbotron">
+        <h1 class="display-4">IBM #HackChallenge!</h1>
+        <p class="lead">We are going to guess your mood from your tweets and suggest you a handpicked playlist. Okay?</p>
+        <hr class="my-4">
+        <p>We are going to lift up your mood, so you feel better!</p>
+    </div>
+    <script>
+        function process() {
+            var url = "/tweet-harvester/" + document.getElementById("inputUsername").value + "/" + document.getElementById("inputCount").value;
+            location.href = url;
+            return false;
+        }
+    </script>
+    <form class="form-inline" onSubmit="return process();">
+        <div class="col-md-4">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">#</span>
+                </div>
+                <input type="text" class="form-control" id="inputCount" placeholder="# Tweets" aria-label="No. of Tweets" aria-describedby="basic-addon1">
             </div>
-            <input type="text" class="form-control" id="inputUsername" placeholder="Twitter Handle" aria-label="Username" aria-describedby="basic-addon1">
         </div>
-    </div>
-    <div class="col-md-3">
-        <button type="submit" class="btn btn-success">Up my mood!</button>
-    </div>
-</form>
+        <div class="col-md-8">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon2">@</span>
+                </div>
+                <input type="text" class="form-control" id="inputUsername" placeholder="Twitter Handle" aria-label="Username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-secondary">Beef up your mood!</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 {% endblock content %}

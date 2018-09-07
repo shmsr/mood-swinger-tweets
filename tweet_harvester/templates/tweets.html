@@ -1,16 +1,37 @@
-{% extends "layout.html" %} 
-{% block content %} 
-{% for tweet in tweets %}
-<div class="card border-primary mb-12">
-    <div class="card-header">Posted on <b>{{ tweet.created_at }}</b></div>
-    <div class="card-body text-success">
-        <h6 class="card-title">
-            <img alt="40x40" class="mr-2 rounded" style="width: 40px; height: 40px;" src="{{ tweet.headshot_url }}" data-holder-rendered="true">
-            <a href="{{ title }}">Tweeted by @{{ title }}'s</a>
-        </h6>
-        <p class="card-text"><b>{{ tweet.tweet }}</b></p>
+{% extends "layout.html" %}
+{% block content %}
+<div class="col-md-9">
+    <div class="card bg-light border-primary">
+        <div class="card-header">Let's lift up your mood!</div>
+        <div class="card-body">
+            <h5 class="card-title">Current Mood: <b>Happy!</b></h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>
+    <br>
+    {% for tweet in tweets %}
+    <div class="card border-primary">
+        <div class="card-header">Posted on <b>{{ tweet.created_at }}</b></div>
+        <div class="card-body text-success">
+            <h6 class="card-title">
+                <img alt="40x40" class="mr-2 rounded" style="width: 40px; height: 40px;" src="{{ img }}" data-holder-rendered="true">
+                <a href="">Tweeted by @{{ title }}'s</a>
+            </h6>
+            <p class="card-text"><b>{{ tweet.tweet }}</b></p>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</div>  
+{% endblock content %}
+{% block main_container_right %}
+<div class="col-md-3">
+    <div class="card border-primary">
+        <img class="card-img-top" src="{{ img }}" alt="Card image cap">
+        <div class="card-body text-center">
+            <h5 class="card-title">{{ name }}</h5>
+            <a class="card-text" href="#"><b>@{{ title }}</b></a>
+        </div>
     </div>
 </div>
-<br> 
-{% endfor %} 
-{% endblock content %}
+{% endblock main_container_right %}
