@@ -10,7 +10,6 @@ Jinja2==2.10
 MarkupSafe==1.0
 mimerender==0.6.0
 oauthlib==2.1.0
-pkg-resources==0.0.0
 pycodestyle==2.4.0
 PySocks==1.6.8
 python-dateutil==2.7.3
