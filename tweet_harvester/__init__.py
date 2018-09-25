@@ -1,6 +1,7 @@
 from flask import Flask, request, json, render_template
 import tweepy
 import string
+import sentiment_analysis
 
 # Name it the '__name__' of this module (tweet-harvest)
 app = Flask(__name__)
@@ -51,6 +52,23 @@ def tweets(username, count=5):
         img = tweets[0]['headshot_url'].replace("_normal","")
         name = tweets[0]['name']
         update = tweets[0]['tweet']
-        return render_template('tweets.html', tweets=tweets, title=username, img=img, name=name, last=update)
+        mood_play = sentiment_analysis.recommend_playlist(update)
+        if mood_play == -1 :
+            return render_template('tweets.html',
+                                    tweets=tweets,
+                                    title=username,
+                                    img=img,
+                                    name=name,
+                                    last=update,
+                                    sentiment="Sorry! We couldn't find an emotional tone!")
+        else :
+            return render_template('tweets.html',
+                                    tweets=tweets,
+                                    title=username,
+                                    img=img,
+                                    name=name,
+                                    last=update,
+                                    sentiment=mood_play["mood"])
+
     else:
         return render_template('Tweet_404.html'), 404

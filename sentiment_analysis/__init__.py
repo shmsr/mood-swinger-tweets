@@ -19,12 +19,11 @@ def remove_non_ascii(text):
     """
     return "".join(i for i in text if ord(i) < 128)
 
-def moody(moody_user, rec_tweet):
+def moody(rec_tweet):
     """
     Return a json dump of topmost tweet with mood points.
 
     @type   s          :  string
-    @param  moody_user :  twitter user handle
     @return            :  json dump
     """
     from watson_developer_cloud import ToneAnalyzerV3
@@ -57,18 +56,17 @@ def isemotional(tone):
 
     return False
 
-def recommend_playlist(moody_user, rec_tweet):
+def recommend_playlist(rec_tweet):
     """
     Returns a recommended YouTube playlist on basis of mood
 
     @type   s          :  string
-    @param  moody_user :  twitter user handle
     @return            :  url of recommended playlist
     """
     # The service can return results for the following tone IDs:
     # `anger`, `fear`, `joy`, and `sadness` (emotional tones); `analytical`, `confident`,
     # and `tentative` (language tones).
-    tone_json = moody(moody_user, rec_tweet)
+    tone_json = moody(rec_tweet)
     tones_list = tone_json.get_result()["document_tone"]["tones"]
 
     mood = ""
@@ -81,7 +79,7 @@ def recommend_playlist(moody_user, rec_tweet):
             mood = tone[1]["tone_id"]
 
     if max_score <= 0:
-        return "Sorry, could not find an emotional tone."
+        return -1
 
     if mood == "anger":
         playlist_url = "https://www.youtube.com/watch?v=Q1jE25zn8RU"
@@ -96,5 +94,5 @@ def recommend_playlist(moody_user, rec_tweet):
         	"PL4QNnZJr8sRPeLgoOL9t4V-18xRAuqe_f"
 
     mood_play = {"mood": mood, "url": playlist_url}
-
+    print(mood_play)
     return mood_play
