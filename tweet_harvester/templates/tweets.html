@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="col-md-8">
+    <h4><b>Last tweet by @{{ title }}</b></h4>
+    <hr>
     <div class="card border-primary bg-light">
         <div class="card-header border-primary">Posted on <b>{{ tweets[0].created_at }}</b></div>
         <div class="card-body text-success">
@@ -13,7 +15,7 @@
         </div>
         <div class="card-footer border-primary"><b>We are gonna judge your mood by this tweet! Alright?</b></div>
     </div>
-    <br>
+    <hr>
     <div class="card bg-light border-primary">
         <div class="card-header">
             <button class="btn btn-outline-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseExample"
@@ -39,7 +41,9 @@
             </div>
         </div>
     </div>
-    <br>
+    <hr>
+    <h4><b>More tweets by @{{ title }}</b></h4>
+    <hr>
     {% for tweet in tweets %}
     {% if loop.index > 1 %}
     <div class="card border-primary">
