@@ -1,37 +1,77 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="col-md-9">
+<div class="col-md-8">
+    <div class="card border-primary bg-light">
+        <div class="card-header border-primary">Posted on <b>{{ tweets[0].created_at }}</b></div>
+        <div class="card-body text-success">
+            <h6 class="card-title">
+                <img alt="40x40" class="mr-2 rounded" style="width: 40px; height: 40px;" src="{{ img }}"
+                    data-holder-rendered="true">
+                <a href="">Tweeted by @{{ title }}'s</a>
+            </h6>
+            <p class="card-text"><b>{{ tweets[0].tweet }}</b></p>
+        </div>
+        <div class="card-footer border-primary"><b>We are gonna judge your mood by this tweet! Alright?</b></div>
+    </div>
+    <br>
     <div class="card bg-light border-primary">
-        <div class="card-header">Let's lift up your mood!</div>
-        <div class="card-body">
-            <h5 class="card-title">Current Mood: <b>{{sentiment}}!</b></h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <iframe src="https://cloudgames.com/games/html5/jump-with-justin-new-en-s-iga-cloud/index.html?pub=10" name="cloudgames-com" width="555" height="716" frameborder="0" scrolling="no"></iframe>
+        <div class="card-header">
+            <button class="btn btn-outline-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                Mood-Lifter
+            </button>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="card-body">
+                {% if sentiment %}
+                <h5 class="card-title">Recent Mood: <b class="text-primary">{{ sentiment.mood }}!</b></h5>
+                <hr>
+                <h6 align="center"><b>Let us play a mood - lifter for you!</b></h6>
+                <hr>
+                <!-- <p class="card-text">{{ sentiment.json_res }}</p> -->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" frameborder="0" src="{{ sentiment.url }}" allowfullscreen></iframe>
+                </div>
+                {% else %}
+                <h5 class="card-title">Sorry to say, but we really can't detect your mood. Hey, you can still play the
+                    game?</b></h5>
+                {% endif %}
+            </div>
         </div>
     </div>
     <br>
     {% for tweet in tweets %}
+    {% if loop.index > 1 %}
     <div class="card border-primary">
         <div class="card-header">Posted on <b>{{ tweet.created_at }}</b></div>
         <div class="card-body text-success">
             <h6 class="card-title">
-                <img alt="40x40" class="mr-2 rounded" style="width: 40px; height: 40px;" src="{{ img }}" data-holder-rendered="true">
+                <img alt="40x40" class="mr-2 rounded" style="width: 40px; height: 40px;" src="{{ img }}"
+                    data-holder-rendered="true">
                 <a href="">Tweeted by @{{ title }}'s</a>
             </h6>
             <p class="card-text"><b>{{ tweet.tweet }}</b></p>
         </div>
     </div>
     <br>
+    {% endif %}
     {% endfor %}
-</div>  
+</div>
 {% endblock content %}
 {% block main_container_right %}
-<div class="col-md-3">
+<div class="col-md-4">
     <div class="card border-primary">
         <img class="card-img-top" src="{{ img }}" alt="Card image cap">
         <div class="card-body text-center">
             <h5 class="card-title">{{ name }}</h5>
             <a class="card-text" href="#"><b>@{{ title }}</b></a>
+        </div>
+    </div>
+    <br>
+    <div class="collapse" id="collapseExample">
+        <div class="card border-primary">
+            <iframe class="embed-responsive-item" src="https://cloudgames.com/games/html5/jump-with-justin-new-en-s-iga-cloud/index.html?pub=10"
+                name="cloudgames-com" height="516" frameborder="0" scrolling="no"></iframe>
         </div>
     </div>
 </div>

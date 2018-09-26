@@ -8,22 +8,15 @@
         <p>We are going to lift up your mood, so you feel better!</p>
     </div>
     <script>
-        function process() {
-            var url = "/tweet-harvester/" + document.getElementById("inputUsername").value + "/" + document.getElementById("inputCount").value;
+        function process() 
+        {
+            var url = "/tweet-harvester/" + document.getElementById("inputUsername").value;
             location.href = url;
             return false;
         }
     </script>
     <form class="form-inline" onSubmit="return process();">
-        <div class="col-md-4">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">#</span>
-                </div>
-                <input type="text" class="form-control" id="inputCount" placeholder="# Tweets" aria-label="No. of Tweets" aria-describedby="basic-addon1">
-            </div>
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon2">@</span>
