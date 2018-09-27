@@ -20,7 +20,6 @@ mccabe==0.6.1
 mimerender==0.6.0
 nbformat==4.4.0
 oauthlib==2.1.0
-pkg-resources==0.0.0
 plotly==3.2.1
 pycodestyle==2.4.0
 pylint==2.1.1
