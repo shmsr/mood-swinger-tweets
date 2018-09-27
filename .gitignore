@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
+tweet_harvester/*.pyc
+tweet_harvester/__pycache__
 
 # C extensions
 *.so
