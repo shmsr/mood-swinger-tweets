@@ -3,21 +3,17 @@ def remove_non_ascii(text):
 
 
 def moody(rec_tweet):
+    from flask import Flask
+    app = Flask(__name__)
+    app.config.from_object('config')
     from watson_developer_cloud import ToneAnalyzerV3
-    ta_username, ta_password = "e16bef9a-baf8-44f3-8a66-0aba2ed6d40a", "oQSJjrrhv4fQ"
-
-    tone_analyzer = ToneAnalyzerV3(
-        username=ta_username,
-        password=ta_password,
-        version='2017-09-21')
-
+    ta_username = app.config['TONE_ANALYSER_USERNAME']
+    ta_password = app.config['TONE_ANALYSER_PASSWORD']
+    tone_analyzer = ToneAnalyzerV3(username=ta_username,password=ta_password,version='2017-09-21')
     texts = rec_tweet
-
     texts = remove_non_ascii(texts)
     print(texts+"\n")
-    tone_analysis = tone_analyzer.tone(
-        {'text': texts},
-        'application/json')
+    tone_analysis = tone_analyzer.tone({'text': texts},'application/json')
     return tone_analysis
 
 
