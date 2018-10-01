@@ -15,6 +15,10 @@ With the advances in technology about sentiment analysis and predictive analytic
 -   IBM Watson Tone Analyser API
 -   Tweepy: Twitter API, etc.
 
+### Application is deployed on Heroku
+
+Our application is deployed on Heroku. Visit @ https://mood-swinger.herokuapp.com/
+
 #### Running the app locally
 
 Pre-requisites: [You need tokens for Twiiter and IBM Watson Tone Analyser API]
