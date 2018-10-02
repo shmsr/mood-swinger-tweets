@@ -19,6 +19,18 @@ With the advances in technology about sentiment analysis and predictive analytic
 
 Our application is deployed on Heroku. Visit @ https://mood-swinger.herokuapp.com/
 
+### Slides
+
+We have pretty visualized slides which you evaluate for easy understanding of our app
+-   Visit @  https://docs.google.com/presentation/d/1yciFYJraSR2lbMLIkZU4witeEAcG-ogADpm3Tl8l-9w/edit?usp=sharing
+-   Else, search the repo for "IBMHackChallenge.pdf"
+
+### Documentation
+
+As instructed documentation in similar format is compiled for your ready perusal. We hope you like it.
+-   Visit @  https://docs.google.com/document/d/1r0oiZRN78aMfSo070vxci2c2a35lFti7mkbrBPWHG3s/edit?usp=sharing
+-   Else, search the repo for "Documentation.pdf"
+
 #### Running the app locally
 
 Pre-requisites: [You need tokens for Twiiter and IBM Watson Tone Analyser API]
