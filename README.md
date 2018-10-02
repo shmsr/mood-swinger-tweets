@@ -31,7 +31,7 @@ As instructed documentation in similar format is compiled for your ready perusal
 -   Visit @  https://docs.google.com/document/d/1r0oiZRN78aMfSo070vxci2c2a35lFti7mkbrBPWHG3s/edit?usp=sharing
 -   Else, search the repo for "Documentation.pdf"
 
-#### Running the app locally
+### Running the app locally
 
 Pre-requisites: [You need tokens for Twiiter and IBM Watson Tone Analyser API]
 
